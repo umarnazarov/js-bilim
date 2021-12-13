@@ -1,3 +1,19 @@
+@use '../../styles/variables' as v;
+
 .navbar {
-    background-color: #383737;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: v.$background;
+    color: v.$text-colour;
+    padding: 10px 20px;
+    font-size: 18px;
+    .logo {
+        cursor: pointer;
+    }
+    .btn {
+        font-size: 18px;
+    }
 }

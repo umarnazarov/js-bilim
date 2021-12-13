@@ -8,13 +8,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^12.0.7",
     "next": "12.0.7",
+    "next-mdx-remote": "^3.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-syntax-highlighter": "^15.4.5",
     "sass": "^1.45.0"
   },
   "devDependencies": {
     "eslint": "8.4.1",
-    "eslint-config-next": "12.0.7"
+    "eslint-config-next": "12.0.7",
+    "gray-matter": "^4.0.3"
   }
 }
