@@ -22,10 +22,10 @@ export default function Home({ articles }) {
 }
 
 export const getStaticProps = async () => {
-  const files = fs.readdirSync(path.join('articles/part1/introduction'))
+  const files = fs.readdirSync(path.join('tutorials'))
 
   const articles = files.map(filename => {
-    const markdownWithMeta = fs.readFileSync(path.join('articles/part1/introduction', filename), 'utf-8')
+    const markdownWithMeta = fs.readFileSync(path.join('tutorials', filename), 'utf-8')
     const { data: frontMatter } = matter(markdownWithMeta)
 
     return {

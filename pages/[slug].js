@@ -18,7 +18,7 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
 }
 
 const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join('articles/part1/introduction'))
+    const files = fs.readdirSync(path.join('tutorials'))
 
     const paths = files.map(filename => ({
         params: {
@@ -33,7 +33,7 @@ const getStaticPaths = async () => {
 }
 
 const getStaticProps = async ({ params: { slug } }) => {
-    const markdownWithMeta = fs.readFileSync(path.join('articles/part1/introduction',
+    const markdownWithMeta = fs.readFileSync(path.join('tutorials',
         slug + '.mdx'), 'utf-8')
 
     const { data: frontMatter, content } = matter(markdownWithMeta)
