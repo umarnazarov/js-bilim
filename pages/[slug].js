@@ -1,4 +1,5 @@
 import { serialize } from 'next-mdx-remote/serialize'
+import glob from 'glob';
 import { MDXRemote } from 'next-mdx-remote'
 import fs from 'fs'
 import path from 'path'
@@ -6,7 +7,6 @@ import matter from 'gray-matter'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import SearchBar from '../components/SearchBar'
-
 
 const PostPage = ({ frontMatter: { title }, mdxSource }) => {
     return (
@@ -18,23 +18,32 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
 }
 
 const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join('tutorials'))
 
-    const paths = files.map(filename => ({
+    const allFiles = glob.sync('tutorials/**/*.mdx')
+    console.log(allFiles)
+
+    const slugs = allFiles.map(filename => filename.split("/")).map(f => f[f.length - 1].replace('.mdx', ''))
+
+    const paths = slugs.map(slug => ({
         params: {
-            slug: filename.replace(/[0-9, .]|mdx/g, '')
+            slug: slug
         }
     }))
+
+
 
     return {
         paths,
         fallback: false,
     }
+
 }
 
 const getStaticProps = async ({ params: { slug } }) => {
-    const markdownWithMeta = fs.readFileSync(path.join('tutorials',
-        slug + '.mdx'), 'utf-8')
+    const allFiles = glob.sync('tutorials/**/*.mdx')
+    let existPath = allFiles.find(f => f.includes(slug))
+
+    const markdownWithMeta = fs.readFileSync(path.join(existPath), 'utf-8')
 
     const { data: frontMatter, content } = matter(markdownWithMeta)
     const mdxSource = await serialize(content)
