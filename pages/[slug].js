@@ -6,13 +6,12 @@ import path from 'path'
 import matter from 'gray-matter'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
-import SearchBar from '../components/SearchBar'
 
 const PostPage = ({ frontMatter: { title }, mdxSource }) => {
     return (
         <div className="mt-4">
             <h1>{title}</h1>
-            <MDXRemote {...mdxSource} components={{ SearchBar, SyntaxHighlighter }} />
+            <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
         </div>
     )
 }
@@ -20,7 +19,6 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
 const getStaticPaths = async () => {
 
     const allFiles = glob.sync('tutorials/**/*.mdx')
-    console.log(allFiles)
 
     const slugs = allFiles.map(filename => filename.split("/")).map(f => f[f.length - 1].replace('.mdx', ''))
 
