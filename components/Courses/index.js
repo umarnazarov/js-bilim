@@ -11,7 +11,7 @@ function Courses() {
                 <div className={cls.cards}>
                     {
                         courses.map(c => (
-                            <div className={cls._card}>
+                            <div key={key.title} className={cls._card}>
                                 <div>
                                     <img className={cls._image} src={c.image} />
                                     <h1 className={cls._name}>{c.title}</h1>
