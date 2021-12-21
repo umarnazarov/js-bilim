@@ -8,17 +8,22 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import LeftSideContent from '../components/LeftSideContent'
 import RightSideContent from '../components/RightSideContent'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar';
 
 
-const PostPage = ({ frontMatter: { title }, mdxSource, filterSections }) => {
+const PostPage = ({ frontMatter: { content }, mdxSource, filterSections }) => {
     return (
-        <div className='container'>
-            <LeftSideContent />
-            <div className="content">
-                <h1>{title}</h1>
-                <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
+        <div>
+            <Navbar />
+            <div className='container'>
+                <LeftSideContent content={content} />
+                <div className="content">
+                    <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
+                </div>
+                <RightSideContent filterSections={filterSections} />
             </div>
-            <RightSideContent filterSections={filterSections} />
+            <Footer />
         </div>
     )
 }
@@ -80,7 +85,6 @@ const getStaticProps = async ({ params: { slug } }) => {
             t.title === value.title
         ))
     );
-    console.log(filterSections)
 
     const markdownWithMeta = fs.readFileSync(path.join(existPath), 'utf-8');
 
