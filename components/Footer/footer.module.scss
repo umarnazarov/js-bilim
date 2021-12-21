@@ -1,0 +1,21 @@
+.container {
+    height: 50px;
+    margin-top: 40px;
+    background-image: radial-gradient(circle farthest-corner at 11.7% 4.3%, #ad00ab 0%, #0f335c 90%);
+    color: #fff;
+    .content {
+        height: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        ._links {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ._link {
+                list-style: none;
+                margin: 0 10px;
+            }
+        }
+    }
+}
