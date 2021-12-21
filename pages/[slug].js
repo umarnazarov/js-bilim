@@ -1,20 +1,30 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import glob from 'glob';
-import { MDXRemote } from 'next-mdx-remote';
 import fs from 'fs';
+import glob from 'glob';
 import path from 'path';
 import matter from 'gray-matter';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+
+import LeftSideContent from '../components/LeftSideContent'
+import RightSideContent from '../components/RightSideContent'
 
 
 const PostPage = ({ frontMatter: { title }, mdxSource, filterSections }) => {
     return (
-        <div className="mt-4">
-            <h1>{title}</h1>
-            <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
+        <div className='container'>
+            <LeftSideContent />
+            <div className="content">
+                <h1>{title}</h1>
+                <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
+            </div>
+            <RightSideContent filterSections={filterSections} />
         </div>
     )
 }
+
+
+
 
 const getStaticPaths = async () => {
 
@@ -52,7 +62,7 @@ const getStaticProps = async ({ params: { slug } }) => {
     let grupedSectionsWithChilds = sections.reduce((prev, val) => {
         const section = new Object;
         let folderName = val.split('/')[2]
-        section.title = folderName;
+        section.title = folderName.replace(/[0-9, -]/g, '');
         section.childs = sections
             .filter(c => c
                 .includes(folderName))

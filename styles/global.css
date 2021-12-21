@@ -4,3 +4,20 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
+
+/* Slug page */
+.container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.content {
+    width: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none
+}
