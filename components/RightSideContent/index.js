@@ -7,6 +7,7 @@ import cls from './right_side_content.module.scss'
 function Index({ filterSections }) {
     const router = useRouter()
     const [toggle, setToggle] = useState('')
+    const [close, setClose] = useState(false)
 
     const handleToggle = (section) => {
         setToggle(toggle === section ? '' : section)
@@ -17,12 +18,15 @@ function Index({ filterSections }) {
     }
 
     return (
-        <div className={cls.container}>
+        <div className={cls.container} id={close ? cls.closed : cls.opened}>
             <div className={cls.content}>
-                <h1 className={cls.title} >Kurs Content</h1>
+                <div className={cls._top}>
+                    <h1 className={cls.title} >Kurs Content</h1>
+                    <span onClick={() => setClose(!close)} className={cls._toggler}>|||</span>
+                </div>
                 {filterSections.map((s, inx) => (
                     <section className={cls.section} key={s.title}>
-                        <div onClick={() => handleToggle(s.title, true)} className={cls._info}>
+                        <div onClick={() => handleToggle(s.title)} className={cls._info}>
                             <h1 className={cls._title}>Section {inx + 1}: {s.title}</h1>
                             <span>{s.childs.length} artikl</span>
                         </div>  
@@ -35,7 +39,7 @@ function Index({ filterSections }) {
                                     <li
                                         key={c.title}
                                         className={cls._child}
-                                        style={{ backgroundColor: router.asPath == `/${c}` ? 'rgb(226, 226, 226)' : '#fff' }}
+                                        style={{ backgroundColor: router.asPath.includes(`/${c}`) ? 'rgb(226, 226, 226)' : '#fff' }}
                                     >
                                         <Link href={c}>{inx + 1 + '. ' + c.replace("-", " ")}</Link>
                                     </li>
@@ -49,4 +53,4 @@ function Index({ filterSections }) {
     )
 }
 
-export default index
+export default Index
