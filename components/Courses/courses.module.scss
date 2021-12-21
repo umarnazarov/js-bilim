@@ -2,56 +2,12 @@
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    height: 100vh;
+    height: 100%;
     .content {
-        margin: 0 auto;
-        margin-top: 50px;
+        margin: 60px auto;
         ._title {
             text-align: center;
             color: #382671;
-        }
-    }
-    .cards {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 50px;
-        ._card {
-            margin: 15px;
-            max-width: 37.5rem;
-            min-width: 17.3rem;
-            ._image {
-                height: 150px;
-                width: 100%;
-                object-fit:cover;
-                padding-bottom: 10px;
-            }
-            ._name {
-                font-size: 18px;
-                color: #382671;
-                font-weight: 700;
-            }
-            ._author {
-                font-size: 15px;
-                color: rgb(94, 94, 94);
-                padding-top: 4px;
-            }
-            ._description {
-                margin: 10px 0;
-                font-size: 15px;
-            }
-            ._btn {
-                padding: 6px 12px;
-                margin-top: 30px;
-                border: none;
-                font-size: 15px;
-                background-color: #5A1483;
-                color: #fff;
-                cursor: pointer;
-                &:hover {
-                    background-color: #7a03be;
-                }
-            }
         }
     }
 }
