@@ -1,0 +1,52 @@
+.container {
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 500px;
+    background-color: #f7f9fa;
+    border-left: 1px solid rgb(221 221 221 / 34%);
+    .content {
+        .title {
+            background-color: #fff;
+            font-size: 18px;
+            padding: 15px;
+        }
+        .section {
+            border-top: 1px solid rgb(221 221 221 / 34%);
+            border-bottom: 1px solid rgb(221 221 221 / 34%);
+            ._info {
+                padding: 20px 15px;
+                cursor: pointer;
+                span {
+                    font-size: 14px;
+                }
+            }
+            ._title {
+                font-size: 18px;
+                text-transform: capitalize;
+            }
+            ._childs {
+                display: none;
+                ._child {
+                    cursor: pointer;
+                    background-color: #fff;
+                    list-style: none;
+                    padding: 15px;
+                    text-transform: capitalize;
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                    }
+                    &:hover {
+                        background-color: rgb(226, 226, 226) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#toggleOn {
+    display: block !important; 
+}
