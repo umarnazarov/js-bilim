@@ -25,7 +25,7 @@ function index({ filterSections }) {
                         <div onClick={() => handleToggle(s.title, true)} className={cls._info}>
                             <h1 className={cls._title}>Section {inx + 1}: {s.title}</h1>
                             <span>{s.childs.length} artikl</span>
-                        </div>
+                        </div>  
                         <ul
                             className={cls._childs}
                             id={checkStatus(s.title)}
