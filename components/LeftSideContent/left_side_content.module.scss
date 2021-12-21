@@ -7,4 +7,27 @@
     height: 100vh;
     background-color: #f7f9fa;
     border-right: 1px solid rgb(221 221 221 / 34%);
+    .content {
+        padding: 20px;
+        ._title {
+            font-size: 17px;
+            font-weight: 600;
+        }
+        ._links {
+            margin-top: 30px;
+            ._link {
+                list-style: none;
+                margin: 10px 0;
+                text-transform:capitalize;
+                line-height: 22px;
+                a {
+                    color: black;
+                    text-decoration: none;
+                    &:hover {
+                        color: rgb(155, 0, 155);
+                    }
+                }
+            }
+        }
+    }
 }
