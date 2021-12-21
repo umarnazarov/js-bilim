@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import cls from './right_side_content.module.scss'
 
-function index({ filterSections }) {
+function Index({ filterSections }) {
     const router = useRouter()
     const [toggle, setToggle] = useState('')
 
