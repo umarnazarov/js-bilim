@@ -49,4 +49,4 @@ function Index({ filterSections }) {
     )
 }
 
-export default index
+export default Index
