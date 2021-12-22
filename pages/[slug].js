@@ -17,7 +17,7 @@ const PostPage = ({ frontMatter: { content }, mdxSource, filterSections }) => {
         <div>
             <Navbar />
             <div className='container'>
-                <LeftSideContent content={content} />
+                <LeftSideContent content={content} filterSections={filterSections} />
                 <div className="content">
                     <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
                 </div>

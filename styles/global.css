@@ -14,10 +14,13 @@
 }
 
 .content {
+    position: relative;
     width: 100%;
     padding: 30px;
     overflow-y: scroll;
 }
+
+/* Article page */
 
 ::-webkit-scrollbar {
     display: none
