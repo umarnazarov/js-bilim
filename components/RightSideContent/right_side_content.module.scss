@@ -32,6 +32,7 @@
             ._info {
                 padding: 20px 15px;
                 cursor: pointer;
+                user-select: none;
                 span {
                     font-size: 14px;
                 }
@@ -43,21 +44,35 @@
             ._childs {
                 display: none;
                 ._child {
-                    cursor: pointer;
-                    background-color: #fff;
-                    list-style: none;
-                    padding: 15px;
-                    text-transform: capitalize;
                     a {
+                        display: block;
+                        cursor: pointer;
+                        background-color: #fff;
+                        list-style: none;
+                        padding: 15px;
+                        text-transform: capitalize;
                         text-decoration: none;
                         color: #000;
-                    }
-                    &:hover {
-                        background-color: rgb(226, 226, 226) !important;
+                        &:hover {
+                            background-color: rgb(226, 226, 226) !important;
+                        }
                     }
                 }
             }
         }
+    }
+}
+
+.movers {
+    span {
+        cursor: pointer;
+        display: inline-block;
+    }
+    .mover_right {
+        padding-left: 5px;
+    }
+    .mover_left {
+        margin-right: 5px;
     }
 }
 
