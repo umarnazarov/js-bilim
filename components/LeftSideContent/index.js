@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { ArrowRight, ArrowLeft } from '../../icons'
 import cls from './left_side_content.module.scss'
 
-function index({ content, filterSections }) {
+function Index({ content, filterSections }) {
     const router = useRouter()
     const allSections = filterSections.reduce((total, val) => [...total, ...val.childs], [])
     let moveTo = allSections.findIndex(v => v.includes(router.asPath.toString().replace(/[/, #]/g, ' ').split(" ")[1]))
@@ -34,4 +34,4 @@ function index({ content, filterSections }) {
     )
 }
 
-export default index
+export default Index
