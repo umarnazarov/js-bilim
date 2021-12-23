@@ -38,7 +38,8 @@ const getStaticPaths = async () => {
     const slugs = allFiles.map(filename => filename
         .split("/"))
         .map(f => f[f.length - 1]
-            .replace('.mdx', ''));
+            .replace(/[0-9, .]/g, '')
+            .replace('mdx', ''));
 
     const paths = slugs.map(slug => ({
         params: {
@@ -72,9 +73,9 @@ const getStaticProps = async ({ params: { slug } }) => {
             .filter(c => c
                 .includes(folderName))
             .map(c => c
-                .replace(/[/]/g, " ")
-                .replace('.mdx', '')
-                .split(' ')[3])
+                .replace(/[0-9, ., /]/g, ' ')
+                .replace('mdx', '')
+                .split(' ')[8])
         return [...prev, section];
     }, []);
 
