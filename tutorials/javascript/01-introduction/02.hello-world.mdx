@@ -28,17 +28,49 @@ We just used a `###` subheading in our blog post.
   `}
 </SyntaxHighlighter>
 
+<SyntaxHighlighter language="css">
+  {`
+    #greet {
+        background: red;
+      }
+  `}
+</SyntaxHighlighter>
+
+<SyntaxHighlighter language="html">
+  {`
+    <!DOCTYPE html>
+    <html>
+        <title>HTML Tutorial</title>
+    <body>
+    <p id="greet">Hello</p>
+    </body>
+    </html>
+  `}
+</SyntaxHighlighter>
+
 <Link href={
   {
-    pathname:"/editor/javascript",
+    pathname:"/editor",
     query: 
       {
-        code: `
-         const doStuff = () => {
-            return console.log('hello word')
-          }
-        `
+        html: `
+    <!DOCTYPE html>
+    <html>
+        <title>HTML Tutorial</title>
+    <body>
+    <p id="greet">Hello</p>
+    </body>
+    </html>
+    `,
+        css: `
+      #greet {
+        background: red;
       }
+    `,
+    js: `
+    console.log('hello')
+    `,
+    }
   }
 }>try it out</Link>
 

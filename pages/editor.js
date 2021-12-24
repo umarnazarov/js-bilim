@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Coder from '../../editors/Coder'
+import Coder from '../components/Coder'
 
-function Html() {
-    const [html, setHtml] = useState('html')
-    const [css, setCss] = useState('css')
+function JavaScript({ html5, css3, javaScript }) {
+    const [js, setJs] = useState(javaScript || '')
+    const [html, setHtml] = useState(html5 || '')
+    const [css, setCss] = useState(css3 || '')
     const [srcDoc, setSrcDoc] = useState('')
 
     useEffect(() => {
@@ -12,17 +13,18 @@ function Html() {
         <html>
           <body>${html}</body>
           <style>${css}</style>
+          <script>${js}</script>
         </html>
       `)
         }, 250)
 
         return () => clearTimeout(timeout)
-    }, [html, css])
+    }, [html, css, js])
 
 
     return (
         <>
-            <div >
+            <div className='containerEditor'>
                 <Coder
                     language="xml"
                     displayName="HTML"
@@ -31,12 +33,18 @@ function Html() {
                 />
                 <Coder
                     language="css"
-                    displayName="CSS"
+                    displayName="Css"
                     value={css}
                     onChange={setCss}
                 />
+                <Coder
+                    language="javascript"
+                    displayName="JS"
+                    value={js}
+                    onChange={setJs}
+                />
             </div>
-            <div >
+            <div className='output'>
                 <iframe
                     srcDoc={srcDoc}
                     title='output'
@@ -50,4 +58,13 @@ function Html() {
     )
 }
 
-export default Html 
+export const getServerSideProps = async (context) => {
+    return {
+        props: {
+            html5: context.query.html || null,
+            css3: context.query.css || null,
+            javaScript: context.query.js || null
+        }
+    }
+}
+export default JavaScript

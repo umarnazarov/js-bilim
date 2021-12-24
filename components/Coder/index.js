@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import cls from './coder.module.scss'
 
 let ControlledEditor = null;
 if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
@@ -25,16 +25,15 @@ export default function Coder(props) {
     }
 
     return (
-        <div className={`editor-container ${open ? '' : 'collapsed'}`}>
-            <div className="editor-title">
-                {displayName}
+        <div className={`${cls.editor_container} ${open ? '' : cls.collapsed}`}>
+            <div className={cls._title}>
+                <h3>{displayName}</h3>
                 <button
                     type="button"
                     className="expand-collapse-btn"
                     onClick={() => setOpen(prevOpen => !prevOpen)}
                 >
-                    {/* <FontAwesomeIcon icon={open ? faCompressAlt : faExpandAlt} /> */}
-                    click
+                    Collap
                 </button>
             </div>
             {ControlledEditor && <ControlledEditor
