@@ -1,0 +1,15 @@
+.editor_container {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    ._title {
+        display: flex;    
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+.collapsed {
+    width: 20%;
+}
