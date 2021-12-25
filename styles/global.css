@@ -37,3 +37,7 @@
 .output {
     height: 100vh;
 }
+
+.output-frame {
+    height: 100%;
+}

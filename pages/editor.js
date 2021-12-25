@@ -52,6 +52,7 @@ function JavaScript({ html5, css3, javaScript }) {
                     frameBorder='0'
                     width="100%"
                     height="100"
+                    className='output-frame'
                 />
             </div>
         </>
