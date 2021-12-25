@@ -19,7 +19,7 @@ export default function Home({ frontMatter: { content } }) {
 }
 
 export const getStaticProps = async () => {
-  const articles = glob.sync('tutorials/**/*index.mdx');
+  const articles = glob.sync('tutorials/**/*index.md');
 
   const markdownWithMeta = fs.readFileSync(path.join(articles[0]), 'utf-8');
   const { data: frontMatter, content } = matter(markdownWithMeta);
