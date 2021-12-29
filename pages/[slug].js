@@ -9,7 +9,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar';
-import JsConsole from '../components/JsConsole';
 import LeftSideContent from '../components/LeftSideContent'
 import RightSideContent from '../components/RightSideContent'
 
@@ -21,7 +20,7 @@ const PostPage = ({ frontMatter: { content }, mdxSource, filterSections }) => {
             <div className='container'>
                 <LeftSideContent content={content} filterSections={filterSections} />
                 <div className="content">
-                    <MDXRemote {...mdxSource} components={{ SyntaxHighlighter, Link, JsConsole }} />
+                    <MDXRemote {...mdxSource} components={{ SyntaxHighlighter, Link }} />
                 </div>
                 <RightSideContent filterSections={filterSections} />
             </div>

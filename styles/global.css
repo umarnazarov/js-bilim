@@ -20,6 +20,16 @@
     overflow-y: scroll;
 }
 
+.content h1 {
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 21px;
+    line-height: 32px;
+    margin-top: 2em;
+}
+
 /* Article page */
 
 ::-webkit-scrollbar {
