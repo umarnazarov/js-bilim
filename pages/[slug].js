@@ -7,7 +7,8 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import Footer from '../components/Footer'
+import {heading} from '../components/H1,2';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import LeftSideContent from '../components/LeftSideContent'
 import RightSideContent from '../components/RightSideContent'
@@ -20,7 +21,7 @@ const PostPage = ({ frontMatter: { content }, mdxSource, filterSections }) => {
             <div className='container'>
                 <LeftSideContent content={content} filterSections={filterSections} />
                 <div className="content">
-                    <MDXRemote {...mdxSource} components={{ SyntaxHighlighter, Link }} />
+                    <MDXRemote {...mdxSource} components={{ SyntaxHighlighter, Link, h1: heading('h1'), h2: heading('h2'), }} />
                 </div>
                 <RightSideContent filterSections={filterSections} />
             </div>
