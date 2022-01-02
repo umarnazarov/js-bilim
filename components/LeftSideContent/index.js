@@ -16,8 +16,8 @@ function Index({ content, filterSections }) {
                 <p className={cls._title}>Ushbu Artiklda</p>
                 <ul className={cls._links}>
                     {content.map(c => (
-                        <li key={c.link} className={cls._link}>
-                            <Link href={"#" + c}>{c.replace('-', ' ')}</Link>
+                        <li key={c.toLowerCase()} className={cls._link}>
+                            <Link href={"#" + c.toLowerCase().split(' ').join('-')}>{c.toLowerCase()}</Link>
                         </li>
                     ))}
                 </ul>
