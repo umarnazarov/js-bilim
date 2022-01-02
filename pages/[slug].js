@@ -14,7 +14,7 @@ import RightSideContent from '../components/RightSideContent'
 
 const heading = Tag => ({ id, children, ...props }) =>
   <Tag id={children.toLowerCase().split(' ').join('-')} {...props}>
-    {children}
+        <a style={{textDecoration: 'none'}} href={'#' + children.toLowerCase().split(' ').join('-')}>{children}</a>
   </Tag>
 
 const PostPage = ({ frontMatter: { content }, mdxSource, filterSections }) => {
