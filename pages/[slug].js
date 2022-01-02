@@ -7,12 +7,15 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import {heading} from '../components/H1,2';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import LeftSideContent from '../components/LeftSideContent'
 import RightSideContent from '../components/RightSideContent'
 
+const heading = Tag => ({ id, children, ...props }) =>
+  <Tag id={children.toLowerCase().split(' ').join('-')} {...props}>
+    {children}
+  </Tag>
 
 const PostPage = ({ frontMatter: { content }, mdxSource, filterSections }) => {
     return (
