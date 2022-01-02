@@ -12,6 +12,7 @@ import Navbar from '../components/Navbar';
 import LeftSideContent from '../components/LeftSideContent'
 import RightSideContent from '../components/RightSideContent'
 
+// eslint-disable-next-line react/display-name
 const heading = Tag => ({ id, children, ...props }) =>
   <Tag id={children.toLowerCase().split(' ').join('-')} {...props}>
         <a style={{textDecoration: 'none'}} href={'#' + children.toLowerCase().split(' ').join('-')}>{children}</a>

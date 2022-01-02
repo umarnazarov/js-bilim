@@ -1,28 +1,128 @@
 ---
-title: GET STARTED
-date: "August 4, 2021"
-description: An Introduction to JavaScript
-tags: ["functions", "javascript"]
-content: ["STARTED", "instalation", "Summary"]
+title: JavaScript-ga kirish
+date: 'Yanvar 2, 2022'
+tags: -javascript
+  -starting
+content: ['STARTED', 'instalation', 'Summary']
 ---
 
-<br />
+# JavaScript-ga Kirish
 
-## This is a Markdown sub-heading
+Keling, JavaScript-ning nimasi o'ziga xosligini va u bilan nimaga erishishimiz mumkinligini ko'rib chiqaylik.
 
-We just used a `###` subheading in our blog post.
+# JavaScript nima?
 
-<SyntaxHighlighter language="javascript">
-  {`
-    const doStuff = () => {
-      return console.log('hey')
-    }
-  `}
-</SyntaxHighlighter>
+_JavaScript_ dastlab "veb-sahifalarni jonli qilish" uchun yaratilgan.
 
+Bu tildagi dasturlar _skriptlar_ deb ataladi. Ular to'g'ridan-to'g'ri veb-sahifaning HTML-da yozilishi va sahifa yuklanganda avtomatik ravishda ishga tushishi mumkin.
+
+Skriptlar oddiy matn sifatida taqdim etiladi va bajariladi. Ularni ishga tushirish uchun maxsus tayyorgarlik yoki jamlama kerak emas.
+
+Bu jihatdan JavaScript [Java](<https://en.wikipedia.org/wiki/Java_(programming_language)>) deb ataladigan boshqa tildan juda farq qiladi.
+
+## Nima uchun u JavaScript deb ataladi?
+
+JavaScript yaratilganda, u dastlab boshqa nomga ega edi: “LiveScript”. Ammo o'sha paytda Java juda mashhur edi, shuning uchun yangi tilni Java tilining "kenja ukasi" sifatida joylashtirishga qaror qilindi.
+
+Ammo rivojlanish jarayonida JavaScript o'zining [ECMAScript](http://en.wikipedia.org/wiki/ECMAScript), deb nomlangan to'liq mustaqil tilga aylandi va endi uning Java tiliga umuman aloqasi yo'q.
+
+Bugungi kunda JavaScript nafaqat brauzerda, balki serverda yoki aslida [the JavaScript engine](https://en.wikipedia.org/wiki/JavaScript_engine) deb nomlangan maxsus dasturga ega har qanday qurilmada ham ishlashi mumkin.
+
+Brauzerda "JavaScript virtual mashinasi" deb ataladigan o'rnatilgan dvigatel mavjud.
+
+Turli dvigatellarda turli xil "kod nomlari" mavjud. Misol uchun:
+
+- [V8](<https://en.wikipedia.org/wiki/V8_(JavaScript_engine)>) -- Chrome, Opera va Edge-da.
+- [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- Firefox-da.
+- ...IE uchun "Chakra", "JavaScriptCore", "Nitro" va Safari uchun "SquirrelFish" kabi boshqa kod nomlari mavjud.
+
+Yuqoridagi shartlarni eslab qolish yaxshidir, chunki ular Internetdagi ishlab chiquvchilar maqolalarida qo'llaniladi. Biz ham ulardan foydalanamiz. Misol uchun, agar "X xususiyati V8 tomonidan qo'llab-quvvatlansa", u ehtimol Chrome, Opera va Edge'da ishlaydi.
+
+## Dvigatellar qanday ishlaydi?
+
+Dvigatellar murakkab. Lekin asoslar oson.
+
+1. Dvigatel (agar u brauzer bo'lsa, o'rnatilgan) skriptni o'qiydi ("parse").
+2. Keyin u skriptni mashina tiliga o'zgartiradi ("compile").
+3. Va keyin mashina kodi juda tez ishlaydi.
+
+Dvigatel jarayonning har bir bosqichida optimallashtirishni qo'llaydi. U hatto tuzilgan skriptni ishlayotganini kuzatib boradi, u orqali o'tadigan ma'lumotlarni tahlil qiladi va shu bilimlar asosida mashina kodini yanada optimallashtiradi.
+
+## Brauzer ichidagi JavaScript nima qila oladi?
+
+Zamonaviy JavaScript - bu "xavfsiz" dasturlash tili. U xotira yoki protsessorga past darajadagi kirishni ta'minlamaydi, chunki u dastlab buni talab qilmaydigan brauzerlar uchun yaratilgan.
+
+JavaScript imkoniyatlari koʻp jihatdan u ishlayotgan _environment_ ga bogʻliq. Masalan, [Node.js](https://wikipedia.org/wiki/Node.js) JavaScript-ga ixtiyoriy fayllarni oʻqish/yozish, tarmoq soʻrovlarini bajarish, va boshqalar.
+
+Brauzer-dagi JavaScript veb-sahifani manipulyatsiya qilish, foydalanuvchi va veb-server bilan o'zaro aloqa qilish bilan bog'liq hamma narsani qila oladi.
+
+Masalan, brauzerda JavaScript quyidagilarni amalga oshirishi mumkin:
+
+- Saytga yangi HTML qoshish, _style_ qo'llash va bularni ozgartirish
+- Foydalanuvchining _click_ munosabat bildirishi, mishkani bosish, kursor harakati, _button_ bosish orqali ishga tushirish.
+- Serverlarga _request_ so'rovlar yuborish, file yuklab olish va yuklash bular yordamida [AJAX](<https://en.wikipedia.org/wiki/Ajax_(programming)>) and [COMET](https://en.wikipedia.org/wiki/Comet_(programming).
+- Cookielar jonatish va ornatish
+- _Local Storage_ da User malumotlarini saqlash
+
+## Brauzerda JavaScript nima qila olmaydi?
+
+JavaScript-ning brauzerdagi imkoniyatlari foydalanuvchi xavfsizligi uchun cheklangan. Maqsad, yomon veb-sahifaning shaxsiy ma'lumotlarga kirishining yoki foydalanuvchi ma'lumotlariga zarar etkazishining oldini olishdir.
+
+Bunday cheklovlarga misollar:
+
+- Web-sahifadagi JavaScript _hard disk_ dagi ixtiyoriy fayllarni o'qiy/yozmasligi, ularni nusxalashi yoki dasturlarni bajara olmasligi mumkin. U OS funktsiyalariga to'g'ridan-to'g'ri kirish imkoniga ega emas.
+
+Zamonaviy brauzerlar unga fayllar bilan ishlashga imkon beradi, biroq kirish cheklangan va faqat foydalanuvchi ma'lum amallarni bajarsa, masalan, faylni brauzer oynasiga "tashlash" yoki `<input>` tegi orqali tanlash orqali taqdim etiladi.
+
+Kamera/mikrofon va boshqa qurilmalar bilan o'zaro aloqa qilish usullari mavjud, ammo ular foydalanuvchining aniq ruxsatini talab qiladi. Shunday qilib, JavaScript-ni yoqadigan sahifa veb-kamerani yashirincha yoqmasligi, atrofni kuzatmasligi va ma'lumotni [NSA] ga yubormasligi mumkin (https://en.wikipedia.org/wiki/National_Security_Agency).
+
+- Turli tablar/window-lar odatda bir-biri haqida bilishmaydi. Ba'zan ular, masalan, bir oyna ikkinchisini ochish uchun JavaScript-dan foydalansa. Ammo bu holatda ham, bir sahifadagi JavaScript boshqa saytlardan (boshqa domen, protokol yoki portdan) kelgan bo'lsa, boshqasiga kira olmasligi mumkin.
+
+Bu "Same Origin Policy" deb ataladi. Buni hal qilish uchun _ikkala sahifa_ ham ma'lumotlar almashinuviga rozi bo'lishi va uni boshqaradigan maxsus JavaScript kodini o'z ichiga olishi kerak. Buni o‘quv qo‘llanmasida ko‘rib chiqamiz.
+
+Bu cheklov, yana, foydalanuvchi xavfsizligi uchun. Foydalanuvchi ochgan `http://anysite.com` sahifasi `http://gmail.com` URL manzilli boshqa brauzer yorlig`iga kira olmasligi va u yerdan ma`lumotlarni o`g`irlashi mumkin emas.
+
+- JavaScript tarmoq orqali joriy sahifa kelgan server bilan osongina bog'lanishi mumkin. Ammo uning boshqa saytlardan/domenlardan ma'lumotlarni olish qobiliyati zaif. Mumkin bo'lsa-da, bu uzoq tomondan aniq kelishuvni (HTTP header da ifodalangan) talab qiladi. Yana bir bor, bu xavfsizlik chegarasi.
+
+Such limits do not exist if JavaScript is used outside of the browser, for example on a server. Modern browsers also allow plugin/extensions which may ask for extended permissions.
+
+## JavaScript-ni nima noyob qiladi?
+
+JavaScript haqida kamida _uchta_ ajoyib narsa bor:
+
+```solishtiring
++ HTML/CSS bilan to'liq integratsiya.
++ Oddiy ishlar oddiygina bajariladi.
++ Barcha asosiy brauzerlar tomonidan qo'llab-quvvatlanadi va _default_ yoqilgan.
 ```
-  // this is a code block
-  const doSomething = () => {
-    return console.log('hey')
-  }
-```
+
+JavaScript bu uch narsani birlashtirgan yagona brauzer texnologiyasidir.
+
+Bu JavaScript-ni noyob qiladi. Shuning uchun u brauzer interfeyslarini yaratish uchun eng keng tarqalgan vositadir.
+
+Ya'ni, JavaScript shuningdek, serverlar, mobil ilovalar va boshqalarni yaratishga imkon beradi.
+
+## JavaScript ustidagi tillar
+
+JavaScript sintaksisi hammaning ehtiyojlariga mos kelmaydi. Turli odamlar turli xil xususiyatlarni xohlashadi.
+
+Buni chunish mumkin, chunki loyihalar va talablar hamma uchun har xil.
+
+Shunday qilib, yaqinda ko'plab yangi tillar paydo bo'ldi, ular brauzerda ishga tushishidan oldin JavaScript-ga _ko'chirilgan_ (aylantirilgan).
+
+Bunday tillarga misollar:
+
+- [CoffeeScript](http://coffeescript.org/) - JavaScript uchun "sintaktik shakar". U qisqaroq sintaksisni taqdim etadi, bu bizga aniqroq va aniqroq kod yozish imkonini beradi. Odatda, Ruby ishlab chiqaruvchilariga yoqadi.
+- [TypeScript](http://www.typescriptlang.org/) murakkab tizimlarni ishlab chiqish va qo'llab-quvvatlashni soddalashtirish uchun "qat'iy ma'lumotlarni yozish" ni qo'shishga qaratilgan. U Microsoft tomonidan ishlab chiqilgan.
+- [Flow](http://flow.org/) shuningdek, ma'lumotlarni yozishni qo'shadi, lekin boshqacha tarzda. Facebook tomonidan ishlab chiqilgan.
+- [Dart](https://www.dartlang.org/) bu oʻz mexanizmiga ega boʻlgan mustaqil til boʻlib, u brauzerdan tashqari muhitlarda (masalan, mobil ilovalar) ishlaydi, lekin JavaScript-ga ham koʻchirilishi mumkin. Google tomonidan ishlab chiqilgan.
+- [Brython](https://brython.info/) JavaScript-ga Python-transpiler bo'lib, JavaScript-ni ishlatmasdan sof Python-da ilovalar yozish imkonini beradi.
+- [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) - brauzer yoki Node-ga mo'ljallangan zamonaviy, qisqa va xavfsiz dasturlash tili.
+
+Bulardan boshqalar ham bor. Albatta, biz transpilyatsiya qilingan tillardan birini ishlatsak ham, nima qilayotganimizni tushunish uchun JavaScript-ni ham bilishimiz kerak.
+
+## Xulosa
+
+- JavaScript dastlab faqat brauzer tili sifatida yaratilgan, ammo hozir u ko'plab boshqa muhitlarda ham qo'llaniladi.
+- Bugungi kunda JavaScript HTML/CSS bilan toʻliq integratsiyalashgan eng keng tarqalgan brauzer tili sifatida oʻziga xos mavqega ega.
+- JavaScript-ga "ko'chiriladigan" va ma'lum xususiyatlarni ta'minlaydigan ko'plab tillar mavjud. JavaScript-ni o'zlashtirgandan so'ng, ularni hech bo'lmaganda qisqacha ko'rib chiqish tavsiya etiladi.
